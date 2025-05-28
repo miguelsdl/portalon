@@ -1,2 +1,74 @@
-{# Replace this with your base template #}
-{% extends "bootstrap5/base.html" %}
+{% load cms_tags %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% cms_page_attribute "meta_description" %}
+    {% cms_page_attribute "meta_keywords" %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block meta_tags %}{% endblock %}
+
+    <title>{% block title %}{% page_attribute "page_title" %}{% endblock %}</title>
+
+    {% block styles %}
+    {% placeholder "head_extra" %}
+    {% static "css/bootstrap.min.css" %}
+    {% static "css/style.css" %}
+    {% CMS_MEDIA_CSS %}
+    {% endblock %}
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        {% block brand_name %}Tu Portal{% block_brand_name %}
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    {% cms_nav "main_menu" %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            {% block main_content %}{% endblock %}
+
+            {% block cms_content %}
+            {% placeholder "content" %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            {% block footer_content %}<p>Tu Portal © {{ current_year }}</p>{% endblock %}
+        </div>
+    </footer>
+
+    {% block scripts %}
+    {% static "js/jquery.min.js" %}
+    {% static "js/bootstrap.min.js" %}
+    {% CMS_MEDIA_JS %}
+
+    <script>
+        {% block custom_js %}{% endblock %}
+    </script>
+    {% endblock %}
+</body>
+</html>
+
+<!--{# Replace this with your base template #}-->
+<!--{% extends "bootstrap5/base.html" %}-->
+
