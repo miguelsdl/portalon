@@ -1,10 +1,9 @@
-{% load cms_tags cms_page_attribute sekizai_tags %}
+{% load cms_tags sekizai_tags %}
 
 <!DOCTYPE html>
 <html>
 <head>
     {% cms_page_attribute "meta_description" %}
-    {% render_block "css" %}
     {% block css %}
         {% render_block "css" %}
     {% endblock %}
