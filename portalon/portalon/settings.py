@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     "djangocms_frontend.contrib.tabs",
     "djangocms_frontend.contrib.utilities",
     "games",
+    "home_portal",
 ]
 
 MIDDLEWARE = [

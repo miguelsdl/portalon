@@ -25,6 +25,7 @@
       <list>
         <option value="$MODULE_DIR$/portalon/portalon/templates" />
         <option value="$MODULE_DIR$/portalon/games/templates" />
+        <option value="$MODULE_DIR$/portalon/home_portal/templates" />
       </list>
     </option>
   </component>

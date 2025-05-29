@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block content %}
+<div class="homepage">
+    {% placeholder "hero_section" %}
+
+    <section class="featured-section">
+        {% placeholder "featured_section" %}
+    </section>
+</div>
+
+{% block extra_js %}
+{{ block.super }}
+{% endblock %}
+
+{% block extra_css %}
+{{ block.super }}
+{% endblock %}
+{% endblock content %}
