@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from game import Game
+from games.models.game import Game
 from filer.fields.image import FilerImageField
 
 
