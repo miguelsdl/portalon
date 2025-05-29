@@ -1,8 +1,7 @@
 from django.views.generic import TemplateView
-from cms.views import PageView
+from django.views.generic import View
 
-
-class HomePageView(PageView):
+class HomePageView(TemplateView):
     template_name = 'home_portal/index.html'
 
     def get_context_data(self, **kwargs):
