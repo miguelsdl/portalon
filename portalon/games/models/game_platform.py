@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.contrib import admin
 
 
 class GamePlatform(models.Model):
@@ -13,3 +14,10 @@ class GamePlatform(models.Model):
 
     def __str__(self):
         return self.name
+
+
+@admin.register(GamePlatform)
+class GamePlatformAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug',)
+    search_fields = ('name',)
+    prepopulated_fields = {'slug': ('name',)}

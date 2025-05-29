@@ -27,6 +27,7 @@ urlpatterns = i18n_patterns(
     path("admin/", admin.site.urls),
     path("filer/", include("filer.urls")),
     path("", include("cms.urls")),
+    path('', include('games.urls')),  # Agregar esta línea
 )
 
 

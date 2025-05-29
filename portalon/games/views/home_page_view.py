@@ -5,7 +5,7 @@ from games.models.game import Game
 class HomePageView(ListView):
     template_name = 'games/home.html'
     context_object_name = 'latest_games'
-    queryset = Game.objects.filter(status='active').order_by('-created_at')[:8]
+    queryset = Game.objects.all().order_by('-created_at')[:8]
     paginate_by = 8
 
     def get_context_data(self, **kwargs):
