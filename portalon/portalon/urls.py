@@ -26,8 +26,9 @@ urlpatterns = i18n_patterns(
     path("jsi18n/", JavaScriptCatalog.as_view(), name="javascript-catalog"),
     path("admin/", admin.site.urls),
     path("filer/", include("filer.urls")),
-    path("", include("cms.urls")),
-    path('', include('games.urls')),  # Agregar esta línea
+    path("cms/", include("cms.urls")),      # ✅ Usa /cms/
+    path("games/", include('games.urls')),  # ✅ Usa /games/
+    path("", include('home_portal.urls')),
 )
 
 

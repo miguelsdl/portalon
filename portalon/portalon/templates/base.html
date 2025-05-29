@@ -1,9 +1,12 @@
+{% extends "bootstrap5/base.html" %}
 {% load cms_tags %}
+{% load static %}
+{% load cms_tags sekizai_tags %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    {% cms_page_attribute "meta_description" %}
-    {% cms_page_attribute "meta_keywords" %}
+{% page_attribute "meta_description" %}
+{% page_attribute "meta_keywords" %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
