@@ -1,20 +1,18 @@
-{% extends "base.html" %}
-{% load cms_tags %}
+{% load cms_tags cms_page_attribute sekizai_tags %}
 
-{% block content %}
-<div class="homepage">
-    {% placeholder "hero_section" %}
-
-    <section class="featured-section">
-        {% placeholder "featured_section" %}
-    </section>
-</div>
-
-{% block extra_js %}
-{{ block.super }}
-{% endblock %}
-
-{% block extra_css %}
-{{ block.super }}
-{% endblock %}
-{% endblock content %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% cms_page_attribute "meta_description" %}
+    {% render_block "css" %}
+    {% block css %}
+        {% render_block "css" %}
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% placeholder "content" %}
+        {% render_block "js" %}
+    </div>
+</body>
+</html>
