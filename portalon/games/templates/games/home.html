@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <!-- Carousel de juegos destacados -->
+        <div class="col-12">
+            {% placeholder "carousel" %}
+        </div>
+
+        <!-- Categorías de juegos -->
+        <div class="col-12 mt-4">
+            <h2 class="section-title">{% trans "Categorías" %}</h2>
+            <div class="categories-grid">
+                {% for category in categories %}
+                <div class="category-card">
+                    <a href="{% url 'games:category_detail' category.slug %}">
+                        <h3>{{ category.name }}</h3>
+                        <p>{{ category.description }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Últimos juegos agregados -->
+        <div class="col-12 mt-4">
+            <h2 class="section-title">{% trans "Últimos Juegos" %}</h2>
+            <div class="games-grid">
+                {% for game in latest_games %}
+                <div class="game-card">
+                    <a href="{% url 'games:game_detail' game.slug %}">
+                        <img src="{{ game.main_image.url }}" alt="{{ game.title }}" class="game-image">
+                        <h3>{{ game.title }}</h3>
+                        <p class="platform">{{ game.platform.name }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
