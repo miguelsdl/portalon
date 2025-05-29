@@ -1,20 +1,11 @@
-{% load cms_tags sekizai_tags %}
-
-<!DOCTYPE html>
-<html>
-<head>
-    {% block meta %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% endblock %}
-    {% block css %}
-        {% render_block "css" %}
-    {% endblock %}
-</head>
-<body>
+{% extends "base.html" %}
+{% load cms_tags static %}
+{% block main_content %}
     <div class="container">
         {% placeholder "content" %}
-        {% render_block "js" %}
     </div>
-</body>
-</html>
+{% endblock %}
+
+{% block custom_js %}
+    {% static "js/custom.js" %}
+{% endblock %}

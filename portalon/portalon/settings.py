@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "games",
+    "home_portal",
     # CMS base apps
     "cms",
     "menus",
@@ -75,8 +77,6 @@ INSTALLED_APPS = [
     "djangocms_frontend.contrib.navigation",
     "djangocms_frontend.contrib.tabs",
     "djangocms_frontend.contrib.utilities",
-    "games",
-    "home_portal",
 ]
 
 MIDDLEWARE = [
@@ -92,6 +92,8 @@ MIDDLEWARE = [
     "cms.middleware.toolbar.ToolbarMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "cms.middleware.language.LanguageCookieMiddleware",
+    "cms.middleware.utils.ApphookReloadMiddleware",
+
 ]
 
 ROOT_URLCONF = "portalon.urls"
@@ -238,3 +240,6 @@ INTERNAL_IPS = [
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = str(BASE_DIR.parent / "media")
+CMS_MENU_TITLE_OVERWRITE_BY_PAGE_TITLE = True
+CMS_SHOW_START_PAGE_MENU_ENTRY = True
+CMS_PAGE_CACHE = False  # Desactiva la caché para desarrollo
